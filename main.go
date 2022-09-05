@@ -8,7 +8,6 @@ import (
 	"github.com/docopt/docopt-go"
 	"os"
 	r "dcSearch/resolvconf"
-
 )
 
 
