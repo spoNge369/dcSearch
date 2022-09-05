@@ -104,8 +104,8 @@ Examples:
   dcSearch -d Enterprise.local 192.168.0.{2..254}
   dcSearch -s ldap -d Enterprise.local 192.168.0.133`
 
-  arg := os.Args[1:]
-  arguments, _ := docopt.ParseArgs(usage, arg, "version 0.1")
+	arg := os.Args[1:]
+	arguments, _ := docopt.ParseArgs(usage, arg, "version 0.1")
 	domain, _ := arguments.String("<domain>")
 	service, _ := arguments.String("<service>")
 
