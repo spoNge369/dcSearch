@@ -13,7 +13,6 @@ import (
 
 func dcfind(domain, service string, aip []string) {
 
-
 	r.Add("/etc/resolv.conf", aip)
 	_, addrs, err := net.LookupSRV(service, "tcp", domain)
 	
@@ -21,7 +20,6 @@ func dcfind(domain, service string, aip []string) {
 		r.Remove("/etc/resolv.conf", aip)
 		panic(err)
 	}
-
 
 	for _, addr := range addrs {
 
@@ -36,8 +34,6 @@ func dcfind(domain, service string, aip []string) {
 	}
 
 	r.Remove("/etc/resolv.conf", aip)
-
-
 }
 
 func Hosts(cidr string) ([]netip.Addr, error) {
@@ -67,7 +63,6 @@ func netip_to_string(hosts []netip.Addr) (ip []string) {
 		ip = append(ip, host_string)
 	}
 	return
-
 }
 
 func ip_array(t interface{}) ([]string) {
@@ -76,7 +71,6 @@ func ip_array(t interface{}) ([]string) {
 	switch reflect.TypeOf(t).Kind() {
 	case reflect.Slice:
 		s := reflect.ValueOf(t)
-
 
 		for i := 0; i < s.Len(); i++ {
 			value := fmt.Sprintf("%s", s.Index(i))
@@ -90,7 +84,6 @@ func ip_array(t interface{}) ([]string) {
 func main() {
 	
 	usage := `dcSearch
-	
 Usage:
   dcSearch Options Arguments
   dcSearch [-s <service> | --service <service>] (-d <domain> | --domain <domain>) (DC ...)
@@ -119,7 +112,6 @@ Examples:
 	if service == "" {
 		service = "kerberos"
 	}
-
 
 	i := ip_array(arguments["DC"])
 
